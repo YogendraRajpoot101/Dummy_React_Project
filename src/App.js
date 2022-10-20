@@ -9,7 +9,7 @@ function App() {
         <p style={{ fontSize: "45px" }}>Yogendra Rajpoot</p>
         <p style={{ fontSize: "20px", marginTop: "-2%" }}>Software Developer</p>
         <p style={{ fontSize: "20px", marginTop: "-1%" }}>
-          Logic is everywhere.
+          Logic Is Everywhere.
         </p>
         {/* <a
           className="App-link"
