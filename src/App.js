@@ -1,7 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
+import { useEffect, useState } from "react";
 
 function App() {
+  // const [first, setFirst] = useState("");
+  // const [second, setSecond] = useState("");
+  let first, second;
+
   // const [params, setParams] = useState("");
   // useEffect(() => {
   //   window.onload = onloadCall();
@@ -22,39 +27,70 @@ function App() {
   //**********************************************************/
 
   let params = "no message";
-  // window.onload = onloadCall();
-  // function onloadCall() {
-  //   const url = window.location.href;
-  //   console.log("url=>", url);
-  //   const value = url.split("?")[1];
-  //   console.log("value=>", value);
-  //   if (value !== undefined) {
-  //     params = value;
-  //   }
-  // }
+  window.onload = onloadCall();
+  function onloadCall() {
+    const url = window.location.href;
+    console.log("url=>", url);
+    const value = url.split("?")[1];
+    console.log("value=>", value);
+    if (value !== undefined) {
+      params = value;
+    }
+  }
   //***************************window onload*************************************/
   //***************************window event listener*****************************/
-  function receive(event) {
-    if (
-      event.origin !==
-      "https://yogibiz.myshopify.com/admin/themes/136317108523/editor"
-    ) {
-      // return;
-    }
-    console.log(
-      "Received Message : ",
-      event,
-      "\n"
-      // JSON.stringify(event),
-      // "\n",
-      // JSON.stringify(event.data),
-      // "\n",
-      // event.origin
-    );
-  }
-  // window.addEventListener("message", receive, true);
-  //*****************************************************************************/
+  // function receive(event) {
+  //   console.log("origin", event.origin);
+  //   if (event.origin !== "https://yogibiz.myshopify.com") {
+  //     return;
+  //   }
+  //   console.log("Received Message ==>> ", event.data, "\n", event.origin, "\n");
+  // }
 
+  // window.onload = func();
+
+  // function func() {
+  //   window.addEventListener("message", receive, false);
+  // }
+  // func();
+  //*****************************************************************************/
+  //****************************window event listener with useEffect*************/
+  // function receive(event) {
+  //   // console.log("origin", event.origin);
+  //   console.log("22");
+  //   if (event.origin !== "https://yogibiz.myshopify.com") {
+  //     return;
+  //   }
+  //   console.log(
+  //     "Received Message ==>> ",
+  //     event.data,
+  //     "\n",
+  //     "==>",
+  //     event.data.message,
+  //     "\n",
+  //     "==>",
+  //     event.data.team,
+  //     "\n",
+  //     event.origin,
+  //     "\n"
+  //   );
+  //   first = event.data.message;
+  //   second = event.data.team;
+  //   // setFirst(event.data.message);
+  //   // setSecond(event.data.team);
+  // }
+
+  // function func() {
+  //   window.addEventListener("message", receive, false);
+  // }
+  // useEffect(() => {
+  //   return () => {
+  //     console.log("count");
+  //     func(); //function to invoke event
+  //     // window.onload = func();
+  //   };
+  // }, []);
+  // //*****************************************************************************/
   return (
     <div className="App">
       <header className="App-header">
@@ -64,7 +100,11 @@ function App() {
         <p style={{ fontSize: "20px", marginTop: "-1%" }}>
           Logic Is Everywhere.
         </p>
-        <p>Message Receive from Iframe :- {params}</p>
+
+        <p>
+          1<sup>st</sup> Message Receive from parent Iframe :- {params}
+        </p>
+
         {/* <a
           className="App-link"
           href="https://reactjs.org"
