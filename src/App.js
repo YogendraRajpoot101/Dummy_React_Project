@@ -30,7 +30,7 @@ function App() {
   window.onload = onloadCall();
   function onloadCall() {
     const url = window.location.href;
-    console.log("url=>", url);
+    console.log("url===>", url);
     const value = url.split("?")[1];
     console.log("value=>", value);
     if (value !== undefined) {
